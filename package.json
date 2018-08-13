@@ -1,0 +1,23 @@
+{
+  "name": "eventemitter",
+  "version": "1.0.0",
+  "description": "Custom event emitter module.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "event",
+    "eventemitter",
+    "emitter"
+  ],
+  "author": "Bha",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  }
+}
