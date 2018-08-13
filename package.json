@@ -1,5 +1,5 @@
 {
-  "name": "eventemitter",
+  "name": "event-emitter",
   "version": "1.0.0",
   "description": "Custom event emitter module.",
   "main": "index.js",
@@ -19,5 +19,14 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^23.5.0"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRealBha/event-emitter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheRealBha/event-emitter/issues"
+  },
+  "homepage": "https://github.com/TheRealBha/event-emitter#readme"
 }
