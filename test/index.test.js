@@ -1,6 +1,6 @@
 'use strict';
 
-const EventEmitter = require('../lib/index');
+const EventEmitter = require('..');
 
 const EE = new EventEmitter();
 
@@ -13,13 +13,13 @@ describe('EventEmitter', () => {
         mockCallBack2.mockClear();
     })
         
-    test('It should register handler functions for named events', () => {
+    it('should register handler functions for named events', () => {
         EE.on('testEvent', mockCallBack);
         EE.on('testEvent', mockCallBack2);
         expect(EE.events['testEvent'].length).toBe(2);
     });
 
-    test('It should register "one-time" handler that will be called at most one time.', () => {
+    it('should register "one-time" handler that will be called at most one time.', () => {
 
         EE.on('testEvent', mockCallBack2)
         EE.once('testEvent', mockCallBack);
@@ -36,7 +36,7 @@ describe('EventEmitter', () => {
         expect(testArguments).toHaveBeenCalledWith('arg1', 'arg2', 'arg3', 'arg4', 'arg5');
     });
 
-    test('It should remove specific previously-registered event handlers', () => {
+    it('should remove specific previously-registered event handlers', () => {
         const mockCallBack3 = () => console.log('');
         EE.on('testEvent', mockCallBack3)
         expect(EE.events['testEvent'].length).toBe(5);
@@ -45,7 +45,7 @@ describe('EventEmitter', () => {
 
     });
 
-    test('It should remove all previously-registered event handlers', () => {
+    it('should remove all previously-registered event handlers', () => {
         EE.clearAll('testEvent');
         expect(EE.events['testEvent']).toBe(undefined);
     });
