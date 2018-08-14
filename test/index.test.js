@@ -12,7 +12,7 @@ describe('EventEmitter', () => {
         mockCallBack.mockClear();
         mockCallBack2.mockClear();
     })
-        
+
     it('should register handler functions for named events', () => {
         EE.on('testEvent', mockCallBack);
         EE.on('testEvent', mockCallBack2);
@@ -30,7 +30,7 @@ describe('EventEmitter', () => {
     })
 
     it('should emit named events with any number of arguments.', () => {
-        const testArguments = jest.fn().mockImplementation((arg1, arg2, arg3, arg4, arg5) => {}); 
+        const testArguments = jest.fn().mockImplementation((arg1, arg2, arg3, arg4, arg5) => { });
         EE.on('testEvent', testArguments);
         EE.emit('testEvent', 'arg1', 'arg2', 'arg3', 'arg4', 'arg5');
         expect(testArguments).toHaveBeenCalledWith('arg1', 'arg2', 'arg3', 'arg4', 'arg5');
