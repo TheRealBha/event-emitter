@@ -68,10 +68,8 @@ class EventEmitter {
         if (this.events[eventName]) {
             this.events[eventName].forEach((listener) => {
                 listener.listener.apply(null, args);
-                if (listener.once) {
-                    this.events[eventName] = this.events[eventName].filter(listenerObject => !listenerObject.once);
-                }
             });
+            this.events[eventName] = this.events[eventName].filter(listenerObject => !listenerObject.once);
         }
     }
 
