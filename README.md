@@ -5,8 +5,9 @@ Custom event emitter module that will register events and listeners to the speci
 ## Getting Started
 
 ```
-    const EventEmitter = require('event-emitter');
-    const EE = new EventEmitter();
+    const UrbanEventEmitter = require('urban-event-emitter');
+    const EE = new UrbanEventEmitter();
+```
 
 ## API
 
