@@ -1,8 +1,8 @@
 'use strict';
 
-const EventEmitter = require('..');
+const UrbanEventEmitter = require('../UrbanEventEmitter');
 
-const EE = new EventEmitter();
+const EE = new UrbanEventEmitter();
 
 describe('EventEmitter', () => {
     const mockCallBack = jest.fn();
@@ -17,6 +17,16 @@ describe('EventEmitter', () => {
         EE.on('testEvent', mockCallBack);
         EE.on('testEvent', mockCallBack2);
         expect(EE.events['testEvent'].length).toBe(2);
+    });
+
+    it('should throw an error if the event name is not of type string', () => { 
+        expect(() => EE.on([], mockCallBack)).toThrow(TypeError);
+        expect(() => EE.once([], mockCallBack)).toThrow(TypeError);
+    });
+
+    it('should throw an error if the event name is not of type function', () => { 
+        expect(() => EE.on('test', {})).toThrow(TypeError);
+        expect(() => EE.once('test', {})).toThrow(TypeError);
     });
 
     it('should register "one-time" handler that will be called at most one time.', () => {
@@ -37,16 +47,16 @@ describe('EventEmitter', () => {
     });
 
     it('should remove specific previously-registered event handlers', () => {
+        let listeners;
         const mockCallBack3 = () => console.log('');
-        EE.on('testEvent', mockCallBack3)
-        expect(EE.events['testEvent'].length).toBe(5);
-        EE.clear('testEvent', mockCallBack3);
-        expect(EE.events['testEvent'].length).toBe(4);
-
+        listeners = EE.on('testEvent', mockCallBack3);
+        expect(listeners.length).toBe(5);
+        listeners = EE.clear('testEvent', mockCallBack3);
+        expect(listeners.length).toBe(4);
     });
 
     it('should remove all previously-registered event handlers', () => {
         EE.clearAll('testEvent');
-        expect(EE.events['testEvent']).toBe(undefined);
+        expect(EE.events['testEvent']).toEqual([]);
     });
 });
