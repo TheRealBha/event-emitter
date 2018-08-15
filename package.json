@@ -1,8 +1,8 @@
 {
-  "name": "event-emitter",
+  "name": "urban-event-emitter",
   "version": "1.0.0",
   "description": "Custom event emitter module.",
-  "main": "index.js",
+  "main": "UrbanEventEmitter.js",
   "directories": {
     "lib": "lib",
     "test": "test"
