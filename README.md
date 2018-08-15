@@ -1,4 +1,4 @@
-# Event Emitter
+# Urban Event Emitter
 
 Custom event emitter module that will register events and listeners to the specified event and execute if the event is emitted. It will also register one time events, remove specific listeners from the named event, or remove all listeners for a named event.
 
