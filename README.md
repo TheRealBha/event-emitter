@@ -44,13 +44,14 @@ If a specific listener needs to be removed, specify the named event and the func
 
     EE.on('eventName', customListener);
 
-    const EE.clear('eventName', customListener);
+    EE.clear('eventName', customListener);
 
 ````
 
 ### .clearAll
 To unregister all listeners use .clearAll to clear the list. Specify which named event to do this for.
 ```
-    const EE.clearAll('eventName');
+    EE.clearAll('eventName');
 
 ````
+
